@@ -4,9 +4,11 @@ pushd `dirname $0` >/dev/null
 OSSIMRPM_SCRIPT_DIR=$PWD
 popd > /dev/null
 
-source $OSSIMRPM_SCRIPT_DIR/ossim-env.sh
-source $OSSIMRPM_SCRIPT_DIR/functions.sh
+pushd $OSSIMRPM_SCRIPT_DIR/../.. > /dev/null
+export OSSIM_DEV_HOME=$PWD
+export OSSIM_INSTAL_PREFIX=$OSSIM_DEV_HOME/install
 
+export
 mkdir -p $OSSIM_DEV_HOME/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 if [ $? -ne 0 ]; then
   echo; echo "ERROR: Unable to create rpmbuild directories."
@@ -31,67 +33,67 @@ wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/gpstk-2.3.src.tar
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/hdf5a-1.8.17.tar.gz -O hdf5a-1.8.17.tar.gz
 popd >/dev/null
 
-cp $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec $OSSIM_DEV_HOME/rpmbuild/SPECS/
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Unable to copy spec files from $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec to location $OSSIM_DEV_HOME/rpmbuild/SPECS."
-  exit 1
-fi
+# cp $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec $OSSIM_DEV_HOME/rpmbuild/SPECS/
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Unable to copy spec files from $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec to location $OSSIM_DEV_HOME/rpmbuild/SPECS."
+#   exit 1
+# fi
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/aws-sdk-cpp.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for aws-sdk-cpp rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/aws-sdk-cpp.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for aws-sdk-cpp rpm build."
+#   exit 1
+# fi
 
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/ffmpeg.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for ffmpeg rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/ffmpeg.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for ffmpeg rpm build."
+#   exit 1
+# fi
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/hdf5a.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for hdf5a rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/hdf5a.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for hdf5a rpm build."
+#   exit 1
+# fi
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/libjpeg12-turbo.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for libjpeg12-turbo rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/libjpeg12-turbo.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for libjpeg12-turbo rpm build."
+#   exit 1
+# fi
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/gpstk.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for gpstk rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/gpstk.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for gpstk rpm build."
+#   exit 1
+# fi
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 3" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/szip.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for szip rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 3" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/szip.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for szip rpm build."
+#   exit 1
+# fi
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/OpenSceneGraph.spec
-if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Build failed for OpenSceneGraph rpm build."
-  exit 1
-fi
+# rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/OpenSceneGraph.spec
+# if [ $? -ne 0 ]; then
+#   echo; echo "ERROR: Build failed for OpenSceneGraph rpm build."
+#   exit 1
+# fi
 
-getOsInfo os major_version minor_version os_arch
+# getOsInfo os major_version minor_version os_arch
 
-rpmdir=${OSSIM_DEV_HOME}/dependency-rpms
-if [ -d "$rpmdir" ] ; then
-  rm -rf $rpmdir/*
-fi
-mkdir -p $rpmdir
+# rpmdir=${OSSIM_DEV_HOME}/dependency-rpms
+# if [ -d "$rpmdir" ] ; then
+#   rm -rf $rpmdir/*
+# fi
+# mkdir -p $rpmdir
 
-pushd ${OSSIM_DEV_HOME}/rpmbuild/RPMS >/dev/null
-  mv `find ./${os_arch} -name "*.rpm"` $rpmdir/
-popd > /dev/null
+# pushd ${OSSIM_DEV_HOME}/rpmbuild/RPMS >/dev/null
+#   mv `find ./${os_arch} -name "*.rpm"` $rpmdir/
+# popd > /dev/null
 
-pushd ${OSSIM_DEV_HOME} >/dev/null
-tar cvfz dependency-rpms.tgz dependency-rpms
-popd > /dev/null
+# pushd ${OSSIM_DEV_HOME} >/dev/null
+# tar cvfz dependency-rpms.tgz dependency-rpms
+# popd > /dev/null

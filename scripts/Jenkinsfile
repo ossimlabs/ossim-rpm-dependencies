@@ -13,7 +13,7 @@ node{
         }
         stage ("Build")
         {
-            sh "${env.WORKSPACE}/ossim-ci/scripts/linux/rpmbuild-dependencies.sh"
+            sh "${env.WORKSPACE}/ossim-rpm-dependencies/scripts/rpmbuild-dependencies.sh"
         }
         stage("Archive"){
 
