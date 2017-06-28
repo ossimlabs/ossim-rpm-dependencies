@@ -22,7 +22,7 @@ C++ SDK for amazon web services
 %build
 mkdir -p build
 pushd build
-cmake3 .. -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_ONLY="s3"
+cmake3 .. -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_ONLY="s3" -DENABLE_TESTING=OFF
 make -j8
 popd
 
