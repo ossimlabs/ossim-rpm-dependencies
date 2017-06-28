@@ -1,11 +1,11 @@
 #!/bin/bash
 
 pushd `dirname $0` >/dev/null
-OSSIMCI_SCRIPT_DIR=$PWD
+OSSIMRPM_SCRIPT_DIR=$PWD
 popd > /dev/null
 
-source $OSSIMCI_SCRIPT_DIR/ossim-env.sh
-source $OSSIMCI_SCRIPT_DIR/functions.sh
+source $OSSIMRPM_SCRIPT_DIR/ossim-env.sh
+source $OSSIMRPM_SCRIPT_DIR/functions.sh
 
 mkdir -p $OSSIM_DEV_HOME/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 if [ $? -ne 0 ]; then
@@ -31,9 +31,9 @@ wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/gpstk-2.3.src.tar
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/hdf5a-1.8.17.tar.gz -O hdf5a-1.8.17.tar.gz
 popd >/dev/null
 
-cp $OSSIM_DEV_HOME/ossim-ci/rpm_specs/*.spec $OSSIM_DEV_HOME/rpmbuild/SPECS/
+cp $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec $OSSIM_DEV_HOME/rpmbuild/SPECS/
 if [ $? -ne 0 ]; then
-  echo; echo "ERROR: Unable to copy spec files from $OSSIM_DEV_HOME/ossim-ci/rpm_specs/*.spec to location $OSSIM_DEV_HOME/rpmbuild/SPECS."
+  echo; echo "ERROR: Unable to copy spec files from $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec to location $OSSIM_DEV_HOME/rpmbuild/SPECS."
   exit 1
 fi
 
