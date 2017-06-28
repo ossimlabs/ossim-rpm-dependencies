@@ -3,6 +3,9 @@ node{
     env.WORKSPACE=pwd()
     try{
         stage("Checkout"){
+           dir("ossim-rpm-dependencies"){
+              git branch: "${GIT_BRANCH}", url: "https://github.com/ossimlabs/ossim-rpm-dependencies.git"
+           }
            dir("ossim-ci"){
               git branch: "${GIT_BRANCH}", url: "https://github.com/ossimlabs/ossim-ci.git"
            }
