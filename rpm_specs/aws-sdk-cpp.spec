@@ -29,7 +29,9 @@ popd
 %install
 pushd build
 make install DESTDIR=%{buildroot}
-#mv %{buildroot}/usr/lib %{buildroot}/usr/lib64
+if [ -d %{buildroot}/usr/lib ] ; then
+   mv %{buildroot}/usr/lib %{buildroot}/usr/lib64
+fi
 
 popd
 
