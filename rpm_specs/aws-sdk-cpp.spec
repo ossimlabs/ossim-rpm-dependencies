@@ -1,5 +1,5 @@
 Name:           aws-sdk-cpp
-Version:    1.0.29
+Version:    1.0.108
 Release:        1%{?dist}
 Summary:    aws-sdk-cpp 
 Group:      Applications/Engineering
@@ -22,17 +22,13 @@ C++ SDK for amazon web services
 %build
 mkdir -p build
 pushd build
-cmake3 .. -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_ONLY="s3" -DENABLE_TESTING=ON
+cmake3 .. -DCMAKE_INSTALL_PREFIX=%{_prefix} -DBUILD_ONLY="s3"
 make -j8
 popd
 
 %install
 pushd build
 make install DESTDIR=%{buildroot}
-#if [ -d %{buildroot}/usr/lib ] ; then
-mv %{buildroot}/usr/lib %{buildroot}/usr/lib64
-#fi
-
 popd
 
 %post -p /sbin/ldconfig
