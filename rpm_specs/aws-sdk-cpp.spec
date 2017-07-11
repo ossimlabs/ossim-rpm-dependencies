@@ -1,13 +1,13 @@
 Name:           aws-sdk-cpp
 Version:    1.0.62
 Release:        1%{?dist}
-Summary:    aws-sdk-cpp 
+Summary:    aws-sdk-cpp
 Group:      Applications/Engineering
-License:    Apache License Version 2.0        
+License:    Apache License Version 2.0
 URL:        https://github.com/aws/aws-sdk-cpp
 Source:     https://github.com/aws/aws-sdk-cpp/archive/%{version}.tar.gz
 
-BuildRequires: cmake3 
+BuildRequires: cmake3
 BuildRequires: gcc-c++
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
@@ -25,7 +25,7 @@ C++ SDK for amazon web services
 %build
 mkdir -p build
 pushd build
-cmake3 .. -DCMAKE_INSTALL_PREFIX=%{_prefix}
+cmake3 .. -DCMAKE_INSTALL_PREFIX=%{_prefix} -DENABLE_TESTING=OFF
 make -j8
 popd
 
@@ -1618,6 +1618,8 @@ developement package for xray
 
 %files core-devel
 %{_includedir}/aws/core
+%{_libdir}/pkgconfig
+%{_libdir}/cmake
 
 %files cur
 %{_libdir}/lib*cur.so
