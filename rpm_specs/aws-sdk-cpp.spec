@@ -1001,7 +1001,7 @@ Libraries for redshift
 %package redshift-devel
 Summary:        AWS redshift
 Group:          System Environment/Libraries
-\
+
 %description redshift-devel
 developement package for redshift
 
@@ -1022,7 +1022,7 @@ developement package for rekognition
 %package route53domains
 Summary:        AWS route53domains library
 Group:          System Environment/Libraries
-\
+
 %description route53domains
 Libraries for route53domains
 
