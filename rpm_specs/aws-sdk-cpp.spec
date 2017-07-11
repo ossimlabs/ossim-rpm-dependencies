@@ -1,5 +1,5 @@
 Name:           aws-sdk-cpp
-Version:    1.0.108
+Version:    1.1.8
 Release:        1%{?dist}
 Summary:    aws-sdk-cpp 
 Group:      Applications/Engineering
