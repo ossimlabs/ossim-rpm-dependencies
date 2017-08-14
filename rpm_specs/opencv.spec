@@ -33,8 +33,8 @@ URL:            http://opencv.org
 # and SIFT/SURF from tarball, due to legal concerns.
 # Upstream tarball is available on https://github.com/opencv/opencv/archive/${VERSION}/opencv-%%{version}.tar.gz
 #
-#export VERSION=3.3.0
-wget https://github.com/opencv/opencv/archive/${VERSION}/opencv-%%{version}.tar.gz
+export VERSION=3.3.0
+wget https://github.com/opencv/opencv/archive/%%{version}/opencv-%%{version}.tar.gz
 tar xvf opencv-%%{version}.tar.gz
 pushd opencv-%%{version}. >/dev/null
 find ./ -iname "len*.*" -exec rm {} \;
