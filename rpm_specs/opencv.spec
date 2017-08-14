@@ -31,22 +31,22 @@ URL:            http://opencv.org
 #
 # Need to remove copyrighted lena.jpg images from tarball (rhbz#1295173)
 # and SIFT/SURF from tarball, due to legal concerns.
-# Upstream tarball is available on https://github.com/opencv/opencv/archive/${VERSION}/opencv-${VERSION}.tar.gz
+# Upstream tarball is available on https://github.com/opencv/opencv/archive/${VERSION}/opencv-%%{version}.tar.gz
 #
-# export VERSION=3.2.0
-# wget https://github.com/opencv/opencv/archive/${VERSION}/opencv-${VERSION}.tar.gz
-# tar xvf opencv-${VERSION}.tar.gz
-# cd opencv-${VERSION}
-# find ./ -iname "len*.*" -exec rm {} \;
+#export VERSION=3.3.0
+wget https://github.com/opencv/opencv/archive/${VERSION}/opencv-%%{version}.tar.gz
+tar xvf opencv-%%{version}.tar.gz
+pushd opencv-%%{version}. >/dev/null
+find ./ -iname "len*.*" -exec rm {} \;
 # rm -rf modules/xfeatures2d/
-# cd ..; tar zcf opencv-clean-${VERSION}.tar.gz opencv-${VERSION}/
-# wget https://github.com/Itseez/opencv_contrib/archive/%%{version}/opencv_contrib-%%{version}.tar.gz
-# tar xvf opencv_contrib-${VERSION}.tar.gz
-# cd opencv_contrib-${VERSION}
+popd > /dev/null; tar zcf opencv-clean-%%{version}.tar.gz opencv-%%{version}/
+wget https://github.com/Itseez/opencv_contrib/archive/%%{version}/opencv_contrib-%%{version}.tar.gz
+tar xvf opencv_contrib-%%{version}..tar.gz
+pushd opencv_contrib-%%{version}
 # rm -rf modules/xfeatures2d/
-# cd ..; tar zcf opencv_contrib-clean-${VERSION}.tar.gz opencv_contrib-${VERSION}/
-# Source0:        %{name}-clean-%{version}.tar.gz
-# Source1:        %{name}_contrib-clean-%{version}.tar.gz
+popd >/dev/null; tar zcf opencv_contrib-clean-%%{version}.tar.gz opencv_contrib-%%{version}/
+Source0:        %{name}-clean-%{version}.tar.gz
+Source1:        %{name}_contrib-clean-%{version}.tar.gz
 # fix/simplify cmake config install location (upstreamable)
 # https://bugzilla.redhat.com/1031312
 
