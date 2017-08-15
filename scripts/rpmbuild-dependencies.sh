@@ -14,6 +14,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 pushd $OSSIM_DEV_HOME/rpmbuild/SOURCES >/dev/null
+wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/opencv-3.3.0.tar.gz -O opencv-3.3.0.tar.gz
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/aws-sdk-cpp-1.0.62.tar.gz -O 1.0.62.tar.gz
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/ffmpeg-2.1.1.tar.bz2 -O ffmpeg-2.1.1.tar.bz2
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/OpenSceneGraph-3.2.1.zip -O OpenSceneGraph-3.2.1.zip
@@ -35,6 +36,28 @@ popd >/dev/null
 cp $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec $OSSIM_DEV_HOME/rpmbuild/SPECS/
 if [ $? -ne 0 ]; then
   echo; echo "ERROR: Unable to copy spec files from $OSSIMRPM_SCRIPT_DIR/../rpm_specs/*.spec to location $OSSIM_DEV_HOME/rpmbuild/SPECS."
+  exit 1
+fi
+
+
+pushd ${OSSIM_DEV_HOME}/rpmbuild/SOURCES
+  export OPENCV_VERSION=3.3.0
+  wget https://s3.amazonaws.com/ossimlabs/dependencies/source/opencv-${OPENCV_VERSION}.tar.gz
+  tar xvf opencv-${OPENCV_VERSION}.tar.gz
+  pushd opencv-${OPENCV_VERSION} >/dev/null
+  find ./ -iname "len*.*" -exec rm {} \;
+  # rm -rf modules/xfeatures2d/
+  popd > /dev/null; tar zcf opencv-clean-${OPENCV_VERSION}.tar.gz opencv-${OPENCV_VERSION}/
+  wget https://s3.amazonaws.com/ossimlabs/dependencies/source/opencv_contrib-${OPENCV_VERSION}.tar.gz -O opencv_contrib-clean-${OPENCV_VERSION}.tar.gz
+  # tar xvf opencv_contrib-${OPENCV_VERSION}.tar.gz
+  # pushd opencv_contrib-${OPENCV_VERSION}
+  # rm -rf modules/xfeatures2d/
+  # popd >/dev/null; tar zcf opencv_contrib-clean-${OPENCV_VERSION}.tar.gz opencv_contrib-${OPENCV_VERSION}/
+popd > /dev/null
+
+rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild"  ${OSSIM_DEV_HOME}/rpmbuild/SPECS/opencv.spec
+if [ $? -ne 0 ]; then
+  echo; echo "ERROR: Build failed for opencv 3.3.0 rpm build."
   exit 1
 fi
 

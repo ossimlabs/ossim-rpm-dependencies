@@ -11,7 +11,7 @@
 %bcond_with    atlas
 %bcond_with    vtk
 %global srcname opencv
-%global abiver 3.2
+%global abiver 3.3
 
 # Required because opencv-core has lot of spurious dependencies
 # (despite supposed to be "-core")
@@ -21,7 +21,7 @@
 
 Name:           opencv
 Version:        3.3.0
-Release:        3%{?dist}
+Release:        1%{?dist}
 Summary:        Collection of algorithms for computer vision
 Group:          Development/Libraries
 # This is normal three clause BSD.
@@ -33,20 +33,20 @@ URL:            http://opencv.org
 # and SIFT/SURF from tarball, due to legal concerns.
 # Upstream tarball is available on https://github.com/opencv/opencv/archive/${VERSION}/opencv-%%{version}.tar.gz
 #
-export VERSION=3.3.0
-wget https://github.com/opencv/opencv/archive/%%{version}/opencv-%%{version}.tar.gz
-tar xvf opencv-%%{version}.tar.gz
-pushd opencv-%%{version}. >/dev/null
-find ./ -iname "len*.*" -exec rm {} \;
+# export VERSION=3.3.0
+# wget https://github.com/opencv/opencv/archive/${VERSION}/opencv-${VERSION}.tar.gz
+# tar xvf opencv-${VERSION}.tar.gz
+# pushd opencv-${VERSION} >/dev/null
+# find ./ -iname "len*.*" -exec rm {} \;
 # rm -rf modules/xfeatures2d/
-popd > /dev/null; tar zcf opencv-clean-%%{version}.tar.gz opencv-%%{version}/
-wget https://github.com/Itseez/opencv_contrib/archive/%%{version}/opencv_contrib-%%{version}.tar.gz
-tar xvf opencv_contrib-%%{version}..tar.gz
-pushd opencv_contrib-%%{version}
+# popd > /dev/null; tar zcf opencv-clean-${VERSION}.tar.gz opencv-${VERSION}/
+# wget https://github.com/Itseez/opencv_contrib/archive/${VERSION}/opencv_contrib-${VERSION}.tar.gz
+# tar xvf opencv_contrib-${VERSION}.tar.gz
+# pushd opencv_contrib-${VERSION}
 # rm -rf modules/xfeatures2d/
-popd >/dev/null; tar zcf opencv_contrib-clean-%%{version}.tar.gz opencv_contrib-%%{version}/
-Source0:        %{name}-clean-%{version}.tar.gz
-Source1:        %{name}_contrib-clean-%{version}.tar.gz
+# popd >/dev/null; tar zcf opencv_contrib-clean-${VERSION}.tar.gz opencv_contrib-${VERSION}/
+Source0:        %{name}-clean-%%{version}.tar.gz
+Source1:        %{name}_contrib-clean-%%{version}.tar.gz
 # fix/simplify cmake config install location (upstreamable)
 # https://bugzilla.redhat.com/1031312
 
@@ -110,7 +110,7 @@ BuildRequires:  SFML-devel
 BuildRequires:  libucil-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  mesa-libGL-devel mesa-libGLU-devel
-BuildRequires:  hdf5-devel
+# BuildRequires:  hdf5-devel
 %{?with_vtk:BuildRequires: vtk-devel}
 %{?with_atlas:BuildRequires: atlas-devel}
 #ceres-solver-devel push eigen3-devel and tbb-devel
@@ -193,13 +193,17 @@ to provide decent performance and stability.
 %setup -q -a1
 # we don't use pre-built contribs
 pwd
-rm -rf 3rdparty/
-%patch1 -p1 -b .cmake_paths
+mv 3rdparty/ittnotify .
+mv 3rdparty/protobuf .
+rm -rf 3rdparty/*
+mv ittnotify 3rdparty/
+mv protobuf 3rdparty/
+#%patch1 -p1 -b .cmake_paths
 pushd %{name}_contrib-%{version}
 # missing dependecies for dnn module in Fedora (protobuf-cpp)
 rm -rf modules/dnn/
-%patch2 -p1 -b .pillow
-%patch3 -p1 -b .fixtest
+#%patch2 -p1 -b .pillow
+#%patch3 -p1 -b .fixtest
 popd
 
 # fix dos end of lines
@@ -329,7 +333,7 @@ popd
 %{_includedir}/opencv2
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/opencv.pc
-%{_libdir}/OpenCV/*.cmake
+#%{_libdir}/OpenCV/*.cmake
 
 %files devel-docs
 %doc %{_datadir}/OpenCV/samples
