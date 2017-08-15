@@ -360,7 +360,7 @@ popd
 %{_libdir}/libopencv_face.so.%{abiver}*
 %{_libdir}/libopencv_freetype.so.%{abiver}*
 %{_libdir}/libopencv_fuzzy.so.%{abiver}*
-%{_libdir}/libopencv_hdf.so.%{abiver}*
+#%{_libdir}/libopencv_hdf.so.%{abiver}*
 %{_libdir}/libopencv_line_descriptor.so.%{abiver}*
 %{_libdir}/libopencv_optflow.so.%{abiver}*
 %{_libdir}/libopencv_phase_unwrapping.so.%{abiver}*
