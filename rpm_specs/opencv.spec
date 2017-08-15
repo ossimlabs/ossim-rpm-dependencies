@@ -335,7 +335,7 @@ popd
 %{_includedir}/opencv2
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/opencv.pc
-%{_libdir}/OpenCV/*.cmake
+#%{_libdir}/OpenCV/*.cmake
 
 %files devel-docs
 %doc %{_datadir}/OpenCV/samples
