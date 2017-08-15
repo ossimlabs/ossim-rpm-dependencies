@@ -55,7 +55,7 @@ pushd ${OSSIM_DEV_HOME}/rpmbuild/SOURCES
   # popd >/dev/null; tar zcf opencv_contrib-clean-${OPENCV_VERSION}.tar.gz opencv_contrib-${OPENCV_VERSION}/
 popd > /dev/null
 
-rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild"  ${OSSIM_DEV_HOME}/rpmbuild/SPECS/opencv.spec
+rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "_smp_mflags -j4" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/opencv.spec
 if [ $? -ne 0 ]; then
   echo; echo "ERROR: Build failed for opencv 3.3.0 rpm build."
   exit 1
