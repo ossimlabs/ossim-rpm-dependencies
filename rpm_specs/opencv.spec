@@ -308,9 +308,10 @@ popd
 %doc README.md
 %license LICENSE
 %{_bindir}/opencv_*
-%dir %{_datadir}/OpenCV
-%{_datadir}/OpenCV/haarcascades
-%{_datadir}/OpenCV/lbpcascades
+#%dir %{_datadir}/OpenCV
+#%{_datadir}/OpenCV/haarcascades
+#%{_datadir}/OpenCV/haarcascades
+%{_datadir}/OpenCV
 
 %files core
 %{_libdir}/libopencv_core.so.%{abiver}*
@@ -355,12 +356,13 @@ popd
 %{_libdir}/libopencv_ccalib.so.%{abiver}*
 %{_libdir}/libopencv_datasets.so.%{abiver}*
 # Disabled because of missing dependency package in fedora (protobuf-cpp)
-#{_libdir}/libopencv_dnn.so.%{abiver}*
+%{_libdir}/libopencv_dnn.so.%{abiver}*
 %{_libdir}/libopencv_dpm.so.%{abiver}*
 %{_libdir}/libopencv_face.so.%{abiver}*
 %{_libdir}/libopencv_freetype.so.%{abiver}*
 %{_libdir}/libopencv_fuzzy.so.%{abiver}*
 #%{_libdir}/libopencv_hdf.so.%{abiver}*
+%{_libdir}/libopencv_img_hash.so.%{abiver}*
 %{_libdir}/libopencv_line_descriptor.so.%{abiver}*
 %{_libdir}/libopencv_optflow.so.%{abiver}*
 %{_libdir}/libopencv_phase_unwrapping.so.%{abiver}*
@@ -372,9 +374,9 @@ popd
 %{_libdir}/libopencv_structured_light.so.%{abiver}*
 %{_libdir}/libopencv_surface_matching.so.%{abiver}*
 %{_libdir}/libopencv_text.so.%{abiver}*
-# Disabled becouse of unable to solve dnn dependency
-#{_libdir}/libopencv_tracking.so.%{abiver}*
+%{_libdir}/libopencv_tracking.so.%{abiver}*
 %{_libdir}/libopencv_ximgproc.so.%{abiver}*
+%{_libdir}/libopencv_xfeatures2d.so.%{abiver}*
 %{_libdir}/libopencv_xobjdetect.so.%{abiver}*
 %{_libdir}/libopencv_xphoto.so.%{abiver}*
 
