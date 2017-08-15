@@ -846,4 +846,3 @@ popd
 - Made FFMPEG dependency optional (needs to be disabled for inclusion in FE).
 
 * Mon Oct 10 2005 Simon Perreault <nomis80@nomis80.org> - 0.9.7-1
-- Initial package.
