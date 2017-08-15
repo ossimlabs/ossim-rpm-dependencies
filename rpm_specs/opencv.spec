@@ -21,7 +21,7 @@
 
 Name:           opencv
 Version:        3.3.0
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Collection of algorithms for computer vision
 Group:          Development/Libraries
 # This is normal three clause BSD.
@@ -33,20 +33,20 @@ URL:            http://opencv.org
 # and SIFT/SURF from tarball, due to legal concerns.
 # Upstream tarball is available on https://github.com/opencv/opencv/archive/${VERSION}/opencv-%%{version}.tar.gz
 #
-# export VERSION=3.3.0
-# wget https://github.com/opencv/opencv/archive/${VERSION}/opencv-${VERSION}.tar.gz
-# tar xvf opencv-${VERSION}.tar.gz
-# pushd opencv-${VERSION} >/dev/null
-# find ./ -iname "len*.*" -exec rm {} \;
+#export VERSION=3.3.0
+#wget https://github.com/opencv/opencv/archive/%%{version}/opencv-%%{version}.tar.gz
+#tar xvf opencv-%%{version}.tar.gz
+#pushd opencv-%%{version}. >/dev/null
+#find ./ -iname "len*.*" -exec rm {} \;
 # rm -rf modules/xfeatures2d/
-# popd > /dev/null; tar zcf opencv-clean-${VERSION}.tar.gz opencv-${VERSION}/
-# wget https://github.com/Itseez/opencv_contrib/archive/${VERSION}/opencv_contrib-${VERSION}.tar.gz
-# tar xvf opencv_contrib-${VERSION}.tar.gz
-# pushd opencv_contrib-${VERSION}
+#popd > /dev/null; tar zcf opencv-clean-%%{version}.tar.gz opencv-%%{version}/
+#wget https://github.com/Itseez/opencv_contrib/archive/%%{version}/opencv_contrib-%%{version}.tar.gz
+#tar xvf opencv_contrib-%%{version}..tar.gz
+#pushd opencv_contrib-%%{version}
 # rm -rf modules/xfeatures2d/
-# popd >/dev/null; tar zcf opencv_contrib-clean-${VERSION}.tar.gz opencv_contrib-${VERSION}/
-Source0:        %{name}-clean-%%{version}.tar.gz
-Source1:        %{name}_contrib-clean-%%{version}.tar.gz
+#popd >/dev/null; tar zcf opencv_contrib-clean-%%{version}.tar.gz opencv_contrib-%%{version}/
+Source0:        %{name}-clean-%{version}.tar.gz
+Source1:        %{name}_contrib-clean-%{version}.tar.gz
 # fix/simplify cmake config install location (upstreamable)
 # https://bugzilla.redhat.com/1031312
 
@@ -85,10 +85,11 @@ BuildRequires:  tbb-devel
 }
 %endif
 BuildRequires:  zlib-devel pkgconfig
-BuildRequires:  python2-devel
-BuildRequires:  python3-devel
+BuildRequires:  python-devel
+#BuildRequires:  python2-devel
+BuildRequires:  python34-devel
 BuildRequires:  numpy, swig >= 1.3.24
-BuildRequires:  python3-numpy
+BuildRequires:  python34-numpy
 BuildRequires:  python-sphinx
 %{?with_ffmpeg:BuildRequires:  ffmpeg-devel >= 0.4.9}
 %if 0%{?fedora} > 20
@@ -106,11 +107,11 @@ BuildRequires:  gdal-devel
 BuildRequires:  glog-devel
 BuildRequires:  doxygen
 BuildRequires:  gflags-devel
-BuildRequires:  SFML-devel
+#BuildRequires:  SFML-devel
 BuildRequires:  libucil-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  mesa-libGL-devel mesa-libGLU-devel
-# BuildRequires:  hdf5-devel
+#BuildRequires:  hdf5-devel
 %{?with_vtk:BuildRequires: vtk-devel}
 %{?with_atlas:BuildRequires: atlas-devel}
 #ceres-solver-devel push eigen3-devel and tbb-devel
@@ -168,11 +169,11 @@ Requires:       numpy
 This package contains Python bindings for the OpenCV library.
 
 %package        python3
-Summary:        Python3 bindings for apps which use OpenCV
+Summary:        Python34 bindings for apps which use OpenCV
 Group:          Development/Libraries
 Requires:       opencv%{_isa} = %{version}-%{release}
 Requires:       numpy
-%{?python_provide:%python_provide python3-%{srcname}}
+%{?python_provide:%python_provide python34-%{srcname}}
 
 %description    python3
 This package contains Python3 bindings for the OpenCV library.
@@ -192,6 +193,7 @@ to provide decent performance and stability.
 %prep
 %setup -q -a1
 # we don't use pre-built contribs
+echo ******************************************************************************************
 pwd
 mv 3rdparty/ittnotify .
 mv 3rdparty/protobuf .
@@ -333,7 +335,7 @@ popd
 %{_includedir}/opencv2
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/opencv.pc
-#%{_libdir}/OpenCV/*.cmake
+%{_libdir}/OpenCV/*.cmake
 
 %files devel-docs
 %doc %{_datadir}/OpenCV/samples
@@ -846,3 +848,4 @@ popd
 - Made FFMPEG dependency optional (needs to be disabled for inclusion in FE).
 
 * Mon Oct 10 2005 Simon Perreault <nomis80@nomis80.org> - 0.9.7-1
+- Initial package.
