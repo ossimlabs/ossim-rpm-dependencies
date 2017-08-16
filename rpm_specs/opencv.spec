@@ -224,7 +224,7 @@ pushd build
 # disabling IPP because it is closed source library from intel
 
 
-#%cmake CMAKE_VERBOSE=1 \
+#%cmake -DCMAKE_VERBOSE=1 \
 # -DWITH_IPP=OFF \
 # -DWITH_QT=OFF \
 # -DWITH_OPENGL=ON \
