@@ -223,44 +223,46 @@ pushd build
 
 # disabling IPP because it is closed source library from intel
 
-%cmake CMAKE_VERBOSE=1 \
- -DWITH_IPP=OFF \
- -DWITH_QT=OFF \
- -DWITH_OPENGL=ON \
- -DWITH_GDAL=OFF \
- -DWITH_UNICAP=ON \
- -DPYTHON_PACKAGES_PATH=%{python_sitearch} \
- -DCMAKE_SKIP_RPATH=ON \
- -DWITH_CAROTENE=OFF \
- -DENABLE_PRECOMPILED_HEADERS:BOOL=OFF \
-%ifnarch x86_64 ia64
- -DENABLE_SSE=OFF \
- -DENABLE_SSE2=OFF \
-%endif
- %{!?with_sse3:-DENABLE_SSE3=OFF} \
- -DCMAKE_BUILD_TYPE=ReleaseWithDebInfo \
- -DBUILD_opencv_java=OFF \
-%ifarch %{ix86} x86_64 ia64 ppc %{power64} aarch64
- %{?with_tbb: -DWITH_TBB=ON } \
-%endif
- %{!?with_gstreamer:-DWITH_GSTREAMER=OFF} \
- %{!?with_ffmpeg:-DWITH_FFMPEG=OFF} \
-%{?with_cuda: \
- -DWITH_CUDA=ON \
- -DCUDA_TOOLKIT_ROOT_DIR=%{?_cuda_topdir} \
- -DCUDA_VERBOSE_BUILD=ON \
- -DCUDA_PROPAGATE_HOST_FLAGS=OFF \
-} \
-%ifarch %{ix86} x86_64
-%{?with_openni: -DWITH_OPENNI=ON } \
-%endif
- %{!?with_xine:-DWITH_XINE=OFF} \
- -DBUILD_EXAMPLES=ON \
- -DINSTALL_C_EXAMPLES=ON \
- -DINSTALL_PYTHON_EXAMPLES=ON \
- -DOPENCL_INCLUDE_DIR=${_includedir}/CL \
- -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%{version}/modules \
- ..
+
+#%cmake CMAKE_VERBOSE=1 \
+# -DWITH_IPP=OFF \
+# -DWITH_QT=OFF \
+# -DWITH_OPENGL=ON \
+# -DWITH_GDAL=OFF \
+# -DWITH_UNICAP=ON \
+# -DPYTHON_PACKAGES_PATH=%{python_sitearch} \
+# -DCMAKE_SKIP_RPATH=ON \
+# -DWITH_CAROTENE=OFF \
+# -DENABLE_PRECOMPILED_HEADERS:BOOL=OFF \
+#%ifnarch x86_64 ia64
+# -DENABLE_SSE=OFF \
+# -DENABLE_SSE2=OFF \
+#%endif
+# %{!?with_sse3:-DENABLE_SSE3=OFF} \
+# -DCMAKE_BUILD_TYPE=ReleaseWithDebInfo \
+# -DBUILD_opencv_java=OFF \
+#%ifarch %{ix86} x86_64 ia64 ppc %{power64} aarch64
+# %{?with_tbb: -DWITH_TBB=ON } \
+#%endif
+# %{!?with_gstreamer:-DWITH_GSTREAMER=OFF} \
+# %{!?with_ffmpeg:-DWITH_FFMPEG=OFF} \
+#%{?with_cuda: \
+# -DWITH_CUDA=ON \
+# -DCUDA_TOOLKIT_ROOT_DIR=%{?_cuda_topdir} \
+# -DCUDA_VERBOSE_BUILD=ON \
+# -DCUDA_PROPAGATE_HOST_FLAGS=OFF \
+#} \
+#%ifarch %{ix86} x86_64
+#%{?with_openni: -DWITH_OPENNI=ON } \
+#%endif
+# %{!?with_xine:-DWITH_XINE=OFF} \
+# -DBUILD_EXAMPLES=ON \
+# -DINSTALL_C_EXAMPLES=ON \
+# -DINSTALL_PYTHON_EXAMPLES=ON \
+# -DOPENCL_INCLUDE_DIR=${_includedir}/CL \
+# -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%{version}/modules \
+# ..
+cmake -D CMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX -DBUILD_TIFF=ON -DBUILD_EXAMPLES=ON -DCUDA_GENERATION=Auto -DBUILD_NEW_PYTHON_SUPPORT=ON -DWITH_CUDA=ON ..
 
 make VERBOSE=1 %{?_smp_mflags}
 
