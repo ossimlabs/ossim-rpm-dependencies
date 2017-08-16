@@ -65,7 +65,7 @@ BuildRequires:  libraw1394-devel
 BuildRequires:  libdc1394-devel
 %endif
 %endif
-BuildRequires:  jasper-devel
+#BuildRequires:  jasper-devel
 BuildRequires:  libjpeg-devel
 BuildRequires:  libpng-devel
 BuildRequires:  libtiff-devel
