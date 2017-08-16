@@ -195,13 +195,13 @@ to provide decent performance and stability.
 # we don't use pre-built contribs
 echo ******************************************************************************************
 pwd
-mv 3rdparty/ittnotify .
-mv 3rdparty/protobuf .
-mv 3rdparty/libjasper .
-rm -rf 3rdparty/*
-mv ittnotify 3rdparty/
-mv protobuf 3rdparty/
-mv libjasper 3rdparty/
+#mv 3rdparty/ittnotify .
+#mv 3rdparty/protobuf .
+#mv 3rdparty/libjasper .
+#rm -rf 3rdparty/*
+#mv ittnotify 3rdparty/
+#mv protobuf 3rdparty/
+#mv libjasper 3rdparty/
 #%patch1 -p1 -b .cmake_paths
 pushd %{name}_contrib-%{version}
 # missing dependecies for dnn module in Fedora (protobuf-cpp)
