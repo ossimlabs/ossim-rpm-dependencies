@@ -109,7 +109,7 @@ BuildRequires:  doxygen
 BuildRequires:  gflags-devel
 #BuildRequires:  SFML-devel
 BuildRequires:  libucil-devel
-BuildRequires:  qt5-qtbase-devel
+# BuildRequires:  qt5-qtbase-devel
 BuildRequires:  mesa-libGL-devel mesa-libGLU-devel
 #BuildRequires:  hdf5-devel
 %{?with_vtk:BuildRequires: vtk-devel}
