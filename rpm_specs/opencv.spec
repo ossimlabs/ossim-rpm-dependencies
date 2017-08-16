@@ -197,9 +197,11 @@ echo ***************************************************************************
 pwd
 mv 3rdparty/ittnotify .
 mv 3rdparty/protobuf .
+mv 3rdparty/jasper* .
 rm -rf 3rdparty/*
 mv ittnotify 3rdparty/
 mv protobuf 3rdparty/
+mv jasper* 3rdparty/
 #%patch1 -p1 -b .cmake_paths
 pushd %{name}_contrib-%{version}
 # missing dependecies for dnn module in Fedora (protobuf-cpp)
