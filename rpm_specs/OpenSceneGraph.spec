@@ -420,6 +420,7 @@ Sample applications for OpenSceneGraph
 %{_bindir}/osgvertexattributes
 %{_bindir}/osgvertexprogram
 %{_bindir}/osgviewerGLUT
+%{_bindir}/osgviewerGTK
 %{_bindir}/osgviewerWX
 %{_bindir}/osgvirtualprogram
 %{_bindir}/osgvnc  
