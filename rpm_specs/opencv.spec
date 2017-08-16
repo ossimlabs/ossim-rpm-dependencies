@@ -247,6 +247,7 @@ pushd build
  %{!?with_ffmpeg:-DWITH_FFMPEG=OFF} \
 %{?with_cuda: \
  -DWITH_CUDA=ON \
+ -DCUDA_GENERATION=Auto \
  -DCUDA_TOOLKIT_ROOT_DIR=%{?_cuda_topdir} \
  -DCUDA_VERBOSE_BUILD=ON \
  -DCUDA_PROPAGATE_HOST_FLAGS=OFF \
@@ -310,9 +311,9 @@ popd
 %doc README.md
 %license LICENSE
 %{_bindir}/opencv_*
-#%dir %{_datadir}/OpenCV
-#%{_datadir}/OpenCV/haarcascades
-#%{_datadir}/OpenCV/haarcascades
+#dir %{_datadir}/OpenCV
+#{_datadir}/OpenCV/haarcascades
+#{_datadir}/OpenCV/haarcascades
 %{_datadir}/OpenCV
 
 %files core
@@ -331,14 +332,14 @@ popd
 %{_libdir}/libopencv_video.so.%{abiver}*
 %{_libdir}/libopencv_videoio.so.%{abiver}*
 %{_libdir}/libopencv_videostab.so.%{abiver}*
-%{_libdir}/libopencv_cvv.so.%{abiver}*
+#{_libdir}/libopencv_cvv.so.%{abiver}*
 
 %files devel
 %{_includedir}/opencv
 %{_includedir}/opencv2
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/opencv.pc
-#%{_libdir}/OpenCV/*.cmake
+#{_libdir}/OpenCV/*.cmake
 
 %files devel-docs
 %doc %{_datadir}/OpenCV/samples
@@ -363,7 +364,7 @@ popd
 %{_libdir}/libopencv_face.so.%{abiver}*
 %{_libdir}/libopencv_freetype.so.%{abiver}*
 %{_libdir}/libopencv_fuzzy.so.%{abiver}*
-#%{_libdir}/libopencv_hdf.so.%{abiver}*
+#{_libdir}/libopencv_hdf.so.%{abiver}*
 %{_libdir}/libopencv_img_hash.so.%{abiver}*
 %{_libdir}/libopencv_line_descriptor.so.%{abiver}*
 %{_libdir}/libopencv_optflow.so.%{abiver}*
