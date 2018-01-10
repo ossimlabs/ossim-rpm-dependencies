@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd `dirname $0` >/dev/null
+pushd `dirname ${BASH_SOURCE[0]}` >/dev/null
 OSSIMRPM_SCRIPT_DIR=$PWD
 popd > /dev/null
 
