@@ -341,8 +341,8 @@ popd
 %{_libdir}/pkgconfig/opencv.pc
 #{_libdir}/OpenCV/*.cmake
 
-%files devel-docs
-%doc %{_datadir}/OpenCV/samples
+#%files devel-docs
+#%doc %{_datadir}/OpenCV/samples
 
 %files python
 %{python2_sitearch}/cv2.so
