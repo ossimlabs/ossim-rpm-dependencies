@@ -4,10 +4,10 @@ node{
     try{
         stage("Checkout"){
            dir("ossim-rpm-dependencies"){
-              git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/ossim-rpm-dependencies.git"
+              git branch: "${OSSIM_GIT_BRANCH}", url: "${GIT_PUBLIC_SERVER_URL}/ossim-rpm-dependencies.git"
            }
            dir("ossim-ci"){
-              git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/ossim-ci.git"
+              git branch: "${OSSIM_GIT_BRANCH}", url: "${GIT_PUBLIC_SERVER_URL}/ossim-ci.git"
            }
            notifyObj = load "${env.WORKSPACE}/ossim-ci/jenkins/pipeline/notify.groovy"
         }
