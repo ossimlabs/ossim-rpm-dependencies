@@ -257,8 +257,8 @@ pushd build
 %endif
  %{!?with_xine:-DWITH_XINE=OFF} \
  -DBUILD_EXAMPLES=ON \
- -DINSTALL_C_EXAMPLES=ON \
- -DINSTALL_PYTHON_EXAMPLES=ON \
+ -DINSTALL_C_EXAMPLES=OFF \
+ -DINSTALL_PYTHON_EXAMPLES=OFF \
  -DOPENCL_INCLUDE_DIR=${_includedir}/CL \
  -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%{version}/modules \
  ..
