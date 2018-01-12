@@ -6,10 +6,16 @@ node{
            dir("ossim-rpm-dependencies"){
               git branch: "${OSSIM_GIT_BRANCH}", url: "${GIT_PUBLIC_SERVER_URL}/ossim-rpm-dependencies.git"
            }
-           dir("ossim-ci"){
-              git branch: "${OSSIM_GIT_BRANCH}", url: "${GIT_PUBLIC_SERVER_URL}/ossim-ci.git"
-           }
-           notifyObj = load "${env.WORKSPACE}/ossim-ci/jenkins/pipeline/notify.groovy"
+        }
+        stage( "Download Artifacts" ) {
+            dir( "${ env.WORKSPACE }" ) {
+               step ([$class: "CopyArtifact",
+                      projectName: "ossim-ci-${OSSIM_GIT_BRANCH}",
+                      filter: "ossim-ci-${OSSIM_GIT_BRANCH}.tgz",
+                      flatten: true])
+               sh "tar xvfz ossim-ci-${OSSIM_GIT_BRANCH}.tgz"
+               notifyObj = load "${env.WORKSPACE}/ossim-ci/jenkins/pipeline/notify.groovy"
+            }
         }
         stage ("Build")
         {
