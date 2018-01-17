@@ -280,8 +280,8 @@ popd
 
 %install
 pushd build
-#make install DESTDIR=%{buildroot} INSTALL="install -p" CPPROG="cp -p"
-make install DESTDIR=%{buildroot} CPPROG="cp -p"
+install DESTDIR=%{buildroot} INSTALL="install -p" CPPROG="cp -p"
+#make install DESTDIR=%{buildroot} CPPROG="cp -p"
 find %{buildroot} -name '*.la' -delete
 
 # install -pm644 %{SOURCE1} %{buildroot}%{_datadir}/OpenCV/samples/GNUmakefile
