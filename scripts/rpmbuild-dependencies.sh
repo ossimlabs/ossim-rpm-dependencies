@@ -14,7 +14,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 pushd $OSSIM_DEV_HOME/rpmbuild/SOURCES >/dev/null
-#wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/opencv-3.3.0.tar.gz -O opencv-3.3.0.tar.gz
+wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/opencv-3.3.0.tar.gz -O opencv-3.3.0.tar.gz
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/aws-sdk-cpp-1.0.62.tar.gz -O 1.0.62.tar.gz
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/ffmpeg-2.1.1.tar.bz2 -O ffmpeg-2.1.1.tar.bz2
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/OpenSceneGraph-3.2.1.zip -O OpenSceneGraph-3.2.1.zip
@@ -55,11 +55,11 @@ pushd ${OSSIM_DEV_HOME}/rpmbuild/SOURCES
   # popd >/dev/null; tar zcf opencv_contrib-clean-${OPENCV_VERSION}.tar.gz opencv_contrib-${OPENCV_VERSION}/
 popd > /dev/null
 
-#rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "_smp_mflags -j4" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/opencv.spec
-#if [ $? -ne 0 ]; then
-#  echo; echo "ERROR: Build failed for opencv 3.3.0 rpm build."
-#  exit 1
-#fi
+rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "_smp_mflags -j4" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/opencv.spec
+if [ $? -ne 0 ]; then
+  echo; echo "ERROR: Build failed for opencv 3.3.0 rpm build."
+  exit 1
+fi
 
 rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/aws-sdk-cpp.spec
 if [ $? -ne 0 ]; then
