@@ -249,7 +249,7 @@ pushd generic
 make install DESTDIR=$RPM_BUILD_ROOT V=1
 popd
 %if 0%{!?ffmpegsuffix:1}
-mkdir -p generic/tools/qt-faststart $RPM_BUILD_ROOT%{_bindir}
+mkdir -p $RPM_BUILD_ROOT%{_bindir}
 chmod 755 generic/tools/qt-faststart $RPM_BUILD_ROOT%{_bindir}
 install -pm755 generic/tools/qt-faststart $RPM_BUILD_ROOT%{_bindir}
 pushd simd
