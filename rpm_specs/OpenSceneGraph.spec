@@ -38,7 +38,7 @@ BuildRequires:  libtiff-devel
 BuildRequires:  libpng-devel
 BuildRequires:  doxygen graphviz
 BuildRequires:  cmake
-BuildRequires:  wxGTK-devel
+#BuildRequires:  wxGTK-devel
 BuildRequires:  curl-devel
 BuildRequires:  libxml2-devel
 # BuildRequires:  gtkglext-devel
@@ -420,8 +420,8 @@ Sample applications for OpenSceneGraph
 %{_bindir}/osgvertexattributes
 %{_bindir}/osgvertexprogram
 %{_bindir}/osgviewerGLUT
-%{_bindir}/osgviewerGTK
-%{_bindir}/osgviewerWX
+#%{_bindir}/osgviewerGTK
+#%{_bindir}/osgviewerWX
 %{_bindir}/osgvirtualprogram
 %{_bindir}/osgvnc  
 %{_bindir}/osgvolume
