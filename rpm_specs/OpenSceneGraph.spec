@@ -88,7 +88,7 @@ mkdir -p BUILD
 pushd BUILD
 CFLAGS="${RPM_OPT_FLAGS} -pthread"
 CXXFLAGS="${RPM_OPT_FLAGS} -pthread"
-%cmake -DBUILD_OSG_EXAMPLES=ON -DBUILD_DOCUMENTATION=ON ../OpenSceneGraph-%{srcvers} -Wno-dev
+%cmake -DBUILD_OSG_EXAMPLES=OFF -DBUILD_DOCUMENTATION=ON ../OpenSceneGraph-%{srcvers} -Wno-dev
 make VERBOSE=1 %{?_smp_mflags}
 
 make doc_openscenegraph doc_openthreads
