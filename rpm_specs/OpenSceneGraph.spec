@@ -61,12 +61,12 @@ BuildRequires:  libvncserver-devel
 %define _fontdir /usr/share/fonts
 
 %description
-The OpenSceneGraph is an OpenSource, cross platform graphics toolkit for the 
-development of high performance graphics applications such as flight 
-simulators, games, virtual reality and scientific visualization. 
-Based around the concept of a SceneGraph, it provides an object oriented 
-framework on top of OpenGL freeing the developer from implementing and 
-optimizing low level graphics calls, and provides many additional utilities 
+The OpenSceneGraph is an OpenSource, cross platform graphics toolkit for the
+development of high performance graphics applications such as flight
+simulators, games, virtual reality and scientific visualization.
+Based around the concept of a SceneGraph, it provides an object oriented
+framework on top of OpenGL freeing the developer from implementing and
+optimizing low level graphics calls, and provides many additional utilities
 for rapid development of graphics applications.
 
 %prep
@@ -87,7 +87,7 @@ cd ..
 mkdir -p BUILD
 pushd BUILD
 CFLAGS="${RPM_OPT_FLAGS} -pthread"
-CXXFLAGS="${RPM_OPT_FLAGS} -pthread"
+CXXFLAGS="${RPM_OPT_FLAGS} -pthread -std=c++11"
 %cmake -DBUILD_OSG_EXAMPLES=ON -DBUILD_DOCUMENTATION=ON ../OpenSceneGraph-%{srcvers} -Wno-dev
 make VERBOSE=1 %{?_smp_mflags}
 
@@ -375,7 +375,7 @@ Sample applications for OpenSceneGraph
 %{_bindir}/osgprecipitation
 %{_bindir}/osgprerender
 %{_bindir}/osgprerendercubemap
-%{_bindir}/osgqfont 
+%{_bindir}/osgqfont
 %{_bindir}/osgreflect
 %{_bindir}/osgrobot
 %{_bindir}/osgscalarbar
@@ -412,8 +412,8 @@ Sample applications for OpenSceneGraph
 %{_bindir}/osgtexturecompression
 %{_bindir}/osgtexturerectangle
 %{_bindir}/osgthirdpersonview
-%{_bindir}/osgthreadedterrain   
-%{_bindir}/osguniformbuffer     
+%{_bindir}/osgthreadedterrain
+%{_bindir}/osguniformbuffer
 %{_bindir}/osgunittests
 %{_bindir}/osguserdata
 %{_bindir}/osguserstats
@@ -423,7 +423,7 @@ Sample applications for OpenSceneGraph
 #%{_bindir}/osgviewerGTK
 #%{_bindir}/osgviewerWX
 %{_bindir}/osgvirtualprogram
-%{_bindir}/osgvnc  
+%{_bindir}/osgvnc
 %{_bindir}/osgvolume
 %{_bindir}/osgwidgetaddremove
 %{_bindir}/osgwidgetbox
@@ -453,8 +453,8 @@ License:        wxWidgets
 %description -n OpenThreads
 OpenThreads is intended to provide a minimal & complete Object-Oriented (OO)
 thread interface for C++ programmers.  It is loosely modeled on the Java
-thread API, and the POSIX Threads standards.  The architecture of the 
-library is designed around "swappable" thread models which are defined at 
+thread API, and the POSIX Threads standards.  The architecture of the
+library is designed around "swappable" thread models which are defined at
 compile-time in a shared object library.
 
 %post -n OpenThreads -p /sbin/ldconfig
