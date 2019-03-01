@@ -16,7 +16,7 @@ fi
 pushd $OSSIM_DEV_HOME/rpmbuild/SOURCES >/dev/null
 #wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/opencv-3.3.0.tar.gz -O opencv-3.3.0.tar.gz
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/aws-sdk-cpp-1.0.62.tar.gz -O 1.0.62.tar.gz
-wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/ffmpeg-2.1.1.tar.bz2 -O ffmpeg-2.1.1.tar.bz2
+wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/ffmpeg-4.1.1.tar.bz2 -O ffmpeg-4.1.1.tar.bz2
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/OpenSceneGraph-3.2.1.zip -O OpenSceneGraph-3.2.1.zip
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/0001-Cmake-fixes.patch -O 0001-Cmake-fixes.patch
 wget -q https://s3.amazonaws.com/ossimlabs/dependencies/source/0001-Update-Aether-to-0.9.0.M3.patch -O 0001-Update-Aether-to-0.9.0.M3.patch
