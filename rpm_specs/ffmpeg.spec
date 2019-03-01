@@ -265,7 +265,7 @@ popd
 
 %if 0%{!?ffmpegsuffix:1}
 %files
-%doc COPYING.* CREDITS doc/ffserver.conf
+%doc COPYING.* CREDITS
 %{_bindir}/ffmpeg
 %{_bindir}/ffprobe
 %{_bindir}/qt-faststart
