@@ -267,14 +267,10 @@ popd
 %files
 %doc COPYING.* CREDITS README doc/ffserver.conf
 %{_bindir}/ffmpeg
-%{_bindir}/ffplay
 %{_bindir}/ffprobe
-%{_bindir}/ffserver
 %{_bindir}/qt-faststart
 %{_mandir}/man1/ffmpeg*.1*
-%{_mandir}/man1/ffplay*.1*
 %{_mandir}/man1/ffprobe*.1*
-%{_mandir}/man1/ffserver*.1*
 %{_datadir}/ffmpeg
 %endif
 
