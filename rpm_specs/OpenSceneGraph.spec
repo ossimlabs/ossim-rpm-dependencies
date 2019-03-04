@@ -4,8 +4,8 @@
 # package are under the same license as the package itself.
 #
 
-%define apivers 3.5.10
-%define srcvers 3.5.10
+%define apivers 3.6.2
+%define srcvers 3.6.2
 
 Name:           OpenSceneGraph
 Version:        %{apivers}
