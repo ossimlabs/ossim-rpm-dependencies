@@ -247,20 +247,20 @@ OSG Qt bindings.
 
 %postun qt -p /sbin/ldconfig
 
-%package qt-devel
-Summary:        OSG Qt development files
-Group:          Applications/Multimedia
-Requires:       OpenSceneGraph-qt = %{version}-%{release}
-Requires:       OpenSceneGraph-devel = %{version}-%{release}
-Requires:       qt-devel
+# %package qt-devel
+# Summary:        OSG Qt development files
+# Group:          Applications/Multimedia
+# Requires:       OpenSceneGraph-qt = %{version}-%{release}
+# Requires:       OpenSceneGraph-devel = %{version}-%{release}
+# Requires:       qt-devel
 
-%description qt-devel
-Development files for OSG Qt bindings.
+# %description qt-devel
+# Development files for OSG Qt bindings.
 
-%files qt-devel
-%{_includedir}/osgQt
-%{_libdir}/libosgQt.so
-%{_libdir}/pkgconfig/openscenegraph-osgQt.pc
+# %files qt-devel
+# %{_includedir}/osgQt
+# %{_libdir}/libosgQt.so
+# %{_libdir}/pkgconfig/openscenegraph-osgQt.pc
 
 
 # %package examples-qt
