@@ -231,16 +231,16 @@ Development files for OpenSceneGraph.
 # %files examples-gtk
 #%{_bindir}/osgviewerGTK
 
-%package qt
-Summary:        OSG Qt bindings
-Group:          Applications/Multimedia
+# %package qt
+# Summary:        OSG Qt bindings
+# Group:          Applications/Multimedia
 
-%description qt
-OSG Qt bindings.
+# %description qt
+# OSG Qt bindings.
 
-%files qt
-%{_libdir}/libosgQt.so.*
-%dir %{_libdir}/osgPlugins-%{apivers}
+# %files qt
+# %{_libdir}/libosgQt.so.*
+# %dir %{_libdir}/osgPlugins-%{apivers}
 #%{_libdir}/osgPlugins-%{apivers}/osgdb_qfont.so
 
 %post qt -p /sbin/ldconfig
