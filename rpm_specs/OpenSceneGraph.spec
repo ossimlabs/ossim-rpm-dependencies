@@ -101,7 +101,7 @@ popd
 
 
 %files
-%doc OpenSceneGraph-%{srcvers}/{AUTHORS,LICENSE,NEWS,README}.txt
+%doc OpenSceneGraph-%{srcvers}/{AUTHORS,LICENSE,NEWS}.txt
 %{_bindir}/osgarchive
 %{_bindir}/osgconv
 %{_bindir}/osgversion
@@ -459,7 +459,7 @@ compile-time in a shared object library.
 %postun -n OpenThreads -p /sbin/ldconfig
 
 %files -n OpenThreads
-%doc OpenSceneGraph-%{srcvers}/{AUTHORS,LICENSE,NEWS,README}.txt
+%doc OpenSceneGraph-%{srcvers}/{AUTHORS,LICENSE,NEWS}.txt
 %{_libdir}/libOpenThreads.so.*
 
 # OpenThreads-devel
