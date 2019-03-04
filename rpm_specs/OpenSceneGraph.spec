@@ -243,9 +243,9 @@ Development files for OpenSceneGraph.
 # %dir %{_libdir}/osgPlugins-%{apivers}
 #%{_libdir}/osgPlugins-%{apivers}/osgdb_qfont.so
 
-%post qt -p /sbin/ldconfig
+# %post qt -p /sbin/ldconfig
 
-%postun qt -p /sbin/ldconfig
+# %postun qt -p /sbin/ldconfig
 
 # %package qt-devel
 # Summary:        OSG Qt development files
