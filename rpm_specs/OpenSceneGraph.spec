@@ -201,25 +201,25 @@ Development files for OpenSceneGraph.
 %{_libdir}/pkgconfig/openscenegraph.pc
 
 
-%package examples-SDL
-Summary:        OSG sample applications using SDL
-Group:          Applications/Multimedia
+#%package examples-SDL
+#Summary:        OSG sample applications using SDL
+#Group:          Applications/Multimedia
 
-%description examples-SDL
-OSG sample applications using SDL.
+# %description examples-SDL
+# OSG sample applications using SDL.
 
-%files examples-SDL
-%{_bindir}/osgviewerSDL
+# %files examples-SDL
+# %{_bindir}/osgviewerSDL
 
-%package examples-fltk
-Summary:        OSG sample applications using FLTK
-Group:          Applications/Multimedia
+# %package examples-fltk
+# Summary:        OSG sample applications using FLTK
+# Group:          Applications/Multimedia
 
-%description examples-fltk
-OSG sample applications using FLTK.
+# %description examples-fltk
+# OSG sample applications using FLTK.
 
-%files examples-fltk
-%{_bindir}/osgviewerFLTK
+# %files examples-fltk
+# %{_bindir}/osgviewerFLTK
 
 #%package examples-gtk
 #Summary:        OSG sample applications using gtk
@@ -263,181 +263,181 @@ Development files for OSG Qt bindings.
 %{_libdir}/pkgconfig/openscenegraph-osgQt.pc
 
 
-%package examples-qt
-Summary:        OSG sample applications using qt
-Group:          Applications/Multimedia
+# %package examples-qt
+# Summary:        OSG sample applications using qt
+# Group:          Applications/Multimedia
 
-%description examples-qt
-OSG sample applications using qt
+# %description examples-qt
+# OSG sample applications using qt
 
-%files examples-qt
-%{_bindir}/osgviewerQt
+# %files examples-qt
+# %{_bindir}/osgviewerQt
 #%{_bindir}/osgQtBrowser
 #%{_bindir}/osgQtWidgets
 
 # OpenSceneGraph-examples
-%package examples
-Summary:        Sample applications for OpenSceneGraph
-Group:          Applications/Multimedia
+# %package examples
+# Summary:        Sample applications for OpenSceneGraph
+# Group:          Applications/Multimedia
 
-%description examples
-Sample applications for OpenSceneGraph
+# %description examples
+# Sample applications for OpenSceneGraph
 
-%files examples
-%{_bindir}/osg2cpp
-%{_bindir}/osganalysis
-%{_bindir}/osganimate
-%{_bindir}/osganimationeasemotion
-%{_bindir}/osganimationhardware
-%{_bindir}/osganimationmakepath
-%{_bindir}/osganimationmorph
-%{_bindir}/osganimationnode
-%{_bindir}/osganimationskinning
-%{_bindir}/osganimationsolid
-%{_bindir}/osganimationtimeline
-%{_bindir}/osganimationviewer
-%{_bindir}/osgatomiccounter
-%{_bindir}/osgautocapture
-%{_bindir}/osgautotransform
-%{_bindir}/osgbillboard
-%{_bindir}/osgblendequation
-%{_bindir}/osgcallback
-%{_bindir}/osgcamera
-%{_bindir}/osgcatch
-%{_bindir}/osgclip
-%{_bindir}/osgcluster
-%{_bindir}/osgcompositeviewer
-%{_bindir}/osgcomputeshaders
-%{_bindir}/osgcopy
-%{_bindir}/osgcubemap
-%{_bindir}/osgdatabaserevisions
-%{_bindir}/osgdelaunay
-%{_bindir}/osgdepthpartition
-%{_bindir}/osgdepthpeeling
-%{_bindir}/osgdistortion
-%{_bindir}/osgdrawinstanced
-%{_bindir}/osgfadetext
-%{_bindir}/osgfont
-%{_bindir}/osgforest
-%{_bindir}/osgfpdepth
-%{_bindir}/osgframerenderer
-%{_bindir}/osgfxbrowser
-%{_bindir}/osggameoflife
-%{_bindir}/osggeometry
-%{_bindir}/osggeometryshaders
-%{_bindir}/osggpx
-%{_bindir}/osggraphicscost
-%{_bindir}/osghangglide
-%{_bindir}/osghud
-%{_bindir}/osgimagesequence
-%{_bindir}/osgimpostor
-%{_bindir}/osgintersection
-%{_bindir}/osgkdtree
-%{_bindir}/osgkeyboard
-%{_bindir}/osgkeyboardmouse
-%{_bindir}/osgkeystone
-%{_bindir}/osglauncher
-%{_bindir}/osglight
-%{_bindir}/osglightpoint
-%{_bindir}/osglogicop
-%{_bindir}/osglogo
-%{_bindir}/osgmanipulator
-%{_bindir}/osgmemorytest
-%{_bindir}/osgmotionblur
-%{_bindir}/osgmovie
-%{_bindir}/osgmultiplemovies
-%{_bindir}/osgmultiplerendertargets
-%{_bindir}/osgmultitexture
-%{_bindir}/osgmultitexturecontrol
-%{_bindir}/osgmultitouch
-%{_bindir}/osgmultiviewpaging
-%{_bindir}/osgoccluder
-%{_bindir}/osgocclusionquery
-%{_bindir}/osgoit
-%{_bindir}/osgoscdevice
-%{_bindir}/osgoutline
-%{_bindir}/osgpackeddepthstencil
-%{_bindir}/osgpagedlod
-%{_bindir}/osgparametric
-%{_bindir}/osgparticle
-%{_bindir}/osgparticleeffects
-%{_bindir}/osgparticleshader
-%{_bindir}/osgpdf
-%{_bindir}/osgphotoalbum
-%{_bindir}/osgpick
-%{_bindir}/osgplanets
-%{_bindir}/osgpoints
-%{_bindir}/osgpointsprite
-%{_bindir}/osgposter
-%{_bindir}/osgprecipitation
-%{_bindir}/osgprerender
-%{_bindir}/osgprerendercubemap
-%{_bindir}/osgqfont
-%{_bindir}/osgreflect
-%{_bindir}/osgrobot
-%{_bindir}/osgscalarbar
-%{_bindir}/osgscreencapture
-%{_bindir}/osgscribe
-%{_bindir}/osgsequence
-%{_bindir}/osgshadercomposition
-%{_bindir}/osgshadergen
-%{_bindir}/osgshaders
-%{_bindir}/osgshaderterrain
-%{_bindir}/osgshadow
-%{_bindir}/osgshape
-%{_bindir}/osgsharedarray
-%{_bindir}/osgsidebyside
-%{_bindir}/osgsimpleshaders
-%{_bindir}/osgsimplegl3
-%{_bindir}/osgsimplifier
-%{_bindir}/osgsimulation
-%{_bindir}/osgslice
-%{_bindir}/osgspacewarp
-%{_bindir}/osgspheresegment
-%{_bindir}/osgspotlight
-%{_bindir}/osgstereoimage
-%{_bindir}/osgstereomatch
-%{_bindir}/osgteapot
-%{_bindir}/osgterrain
-%{_bindir}/osgtessellate
-%{_bindir}/osgtessellationshaders
-%{_bindir}/osgtext
-%{_bindir}/osgtext3D
-%{_bindir}/osgtexture1D
-%{_bindir}/osgtexture2D
-%{_bindir}/osgtexture3D
-%{_bindir}/osgtexturecompression
-%{_bindir}/osgtexturerectangle
-%{_bindir}/osgthirdpersonview
-%{_bindir}/osgthreadedterrain
-%{_bindir}/osguniformbuffer
-%{_bindir}/osgunittests
-%{_bindir}/osguserdata
-%{_bindir}/osguserstats
-%{_bindir}/osgvertexattributes
-%{_bindir}/osgvertexprogram
-%{_bindir}/osgviewerGLUT
-#%{_bindir}/osgviewerGTK
-#%{_bindir}/osgviewerWX
-%{_bindir}/osgvirtualprogram
-%{_bindir}/osgvnc
-%{_bindir}/osgvolume
-%{_bindir}/osgwidgetaddremove
-%{_bindir}/osgwidgetbox
-%{_bindir}/osgwidgetcanvas
-%{_bindir}/osgwidgetframe
-%{_bindir}/osgwidgetinput
-%{_bindir}/osgwidgetlabel
-%{_bindir}/osgwidgetmenu
-%{_bindir}/osgwidgetmessagebox
-%{_bindir}/osgwidgetnotebook
-%{_bindir}/osgwidgetperformance
-%{_bindir}/osgwidgetscrolled
-%{_bindir}/osgwidgetshader
-%{_bindir}/osgwidgetstyled
-%{_bindir}/osgwidgettable
-%{_bindir}/osgwidgetwindow
-%{_bindir}/osgwindows
+# %files examples
+# %{_bindir}/osg2cpp
+# %{_bindir}/osganalysis
+# %{_bindir}/osganimate
+# %{_bindir}/osganimationeasemotion
+# %{_bindir}/osganimationhardware
+# %{_bindir}/osganimationmakepath
+# %{_bindir}/osganimationmorph
+# %{_bindir}/osganimationnode
+# %{_bindir}/osganimationskinning
+# %{_bindir}/osganimationsolid
+# %{_bindir}/osganimationtimeline
+# %{_bindir}/osganimationviewer
+# %{_bindir}/osgatomiccounter
+# %{_bindir}/osgautocapture
+# %{_bindir}/osgautotransform
+# %{_bindir}/osgbillboard
+# %{_bindir}/osgblendequation
+# %{_bindir}/osgcallback
+# %{_bindir}/osgcamera
+# %{_bindir}/osgcatch
+# %{_bindir}/osgclip
+# %{_bindir}/osgcluster
+# %{_bindir}/osgcompositeviewer
+# %{_bindir}/osgcomputeshaders
+# %{_bindir}/osgcopy
+# %{_bindir}/osgcubemap
+# %{_bindir}/osgdatabaserevisions
+# %{_bindir}/osgdelaunay
+# %{_bindir}/osgdepthpartition
+# %{_bindir}/osgdepthpeeling
+# %{_bindir}/osgdistortion
+# %{_bindir}/osgdrawinstanced
+# %{_bindir}/osgfadetext
+# %{_bindir}/osgfont
+# %{_bindir}/osgforest
+# %{_bindir}/osgfpdepth
+# %{_bindir}/osgframerenderer
+# %{_bindir}/osgfxbrowser
+# %{_bindir}/osggameoflife
+# %{_bindir}/osggeometry
+# %{_bindir}/osggeometryshaders
+# %{_bindir}/osggpx
+# %{_bindir}/osggraphicscost
+# %{_bindir}/osghangglide
+# %{_bindir}/osghud
+# %{_bindir}/osgimagesequence
+# %{_bindir}/osgimpostor
+# %{_bindir}/osgintersection
+# %{_bindir}/osgkdtree
+# %{_bindir}/osgkeyboard
+# %{_bindir}/osgkeyboardmouse
+# %{_bindir}/osgkeystone
+# %{_bindir}/osglauncher
+# %{_bindir}/osglight
+# %{_bindir}/osglightpoint
+# %{_bindir}/osglogicop
+# %{_bindir}/osglogo
+# %{_bindir}/osgmanipulator
+# %{_bindir}/osgmemorytest
+# %{_bindir}/osgmotionblur
+# %{_bindir}/osgmovie
+# %{_bindir}/osgmultiplemovies
+# %{_bindir}/osgmultiplerendertargets
+# %{_bindir}/osgmultitexture
+# %{_bindir}/osgmultitexturecontrol
+# %{_bindir}/osgmultitouch
+# %{_bindir}/osgmultiviewpaging
+# %{_bindir}/osgoccluder
+# %{_bindir}/osgocclusionquery
+# %{_bindir}/osgoit
+# %{_bindir}/osgoscdevice
+# %{_bindir}/osgoutline
+# %{_bindir}/osgpackeddepthstencil
+# %{_bindir}/osgpagedlod
+# %{_bindir}/osgparametric
+# %{_bindir}/osgparticle
+# %{_bindir}/osgparticleeffects
+# %{_bindir}/osgparticleshader
+# %{_bindir}/osgpdf
+# %{_bindir}/osgphotoalbum
+# %{_bindir}/osgpick
+# %{_bindir}/osgplanets
+# %{_bindir}/osgpoints
+# %{_bindir}/osgpointsprite
+# %{_bindir}/osgposter
+# %{_bindir}/osgprecipitation
+# %{_bindir}/osgprerender
+# %{_bindir}/osgprerendercubemap
+# %{_bindir}/osgqfont
+# %{_bindir}/osgreflect
+# %{_bindir}/osgrobot
+# %{_bindir}/osgscalarbar
+# %{_bindir}/osgscreencapture
+# %{_bindir}/osgscribe
+# %{_bindir}/osgsequence
+# %{_bindir}/osgshadercomposition
+# %{_bindir}/osgshadergen
+# %{_bindir}/osgshaders
+# %{_bindir}/osgshaderterrain
+# %{_bindir}/osgshadow
+# %{_bindir}/osgshape
+# %{_bindir}/osgsharedarray
+# %{_bindir}/osgsidebyside
+# %{_bindir}/osgsimpleshaders
+# %{_bindir}/osgsimplegl3
+# %{_bindir}/osgsimplifier
+# %{_bindir}/osgsimulation
+# %{_bindir}/osgslice
+# %{_bindir}/osgspacewarp
+# %{_bindir}/osgspheresegment
+# %{_bindir}/osgspotlight
+# %{_bindir}/osgstereoimage
+# %{_bindir}/osgstereomatch
+# %{_bindir}/osgteapot
+# %{_bindir}/osgterrain
+# %{_bindir}/osgtessellate
+# %{_bindir}/osgtessellationshaders
+# %{_bindir}/osgtext
+# %{_bindir}/osgtext3D
+# %{_bindir}/osgtexture1D
+# %{_bindir}/osgtexture2D
+# %{_bindir}/osgtexture3D
+# %{_bindir}/osgtexturecompression
+# %{_bindir}/osgtexturerectangle
+# %{_bindir}/osgthirdpersonview
+# %{_bindir}/osgthreadedterrain
+# %{_bindir}/osguniformbuffer
+# %{_bindir}/osgunittests
+# %{_bindir}/osguserdata
+# %{_bindir}/osguserstats
+# %{_bindir}/osgvertexattributes
+# %{_bindir}/osgvertexprogram
+# %{_bindir}/osgviewerGLUT
+# #%{_bindir}/osgviewerGTK
+# #%{_bindir}/osgviewerWX
+# %{_bindir}/osgvirtualprogram
+# %{_bindir}/osgvnc
+# %{_bindir}/osgvolume
+# %{_bindir}/osgwidgetaddremove
+# %{_bindir}/osgwidgetbox
+# %{_bindir}/osgwidgetcanvas
+# %{_bindir}/osgwidgetframe
+# %{_bindir}/osgwidgetinput
+# %{_bindir}/osgwidgetlabel
+# %{_bindir}/osgwidgetmenu
+# %{_bindir}/osgwidgetmessagebox
+# %{_bindir}/osgwidgetnotebook
+# %{_bindir}/osgwidgetperformance
+# %{_bindir}/osgwidgetscrolled
+# %{_bindir}/osgwidgetshader
+# %{_bindir}/osgwidgetstyled
+# %{_bindir}/osgwidgettable
+# %{_bindir}/osgwidgetwindow
+# %{_bindir}/osgwindows
 
 %{_datadir}/OpenSceneGraph
 
