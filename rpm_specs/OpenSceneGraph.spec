@@ -85,7 +85,10 @@ mkdir -p BUILD
 pushd BUILD
 CFLAGS="${RPM_OPT_FLAGS} -pthread"
 CXXFLAGS="${RPM_OPT_FLAGS} -pthread -std=c++11"
-%cmake -DBUILD_OSG_EXAMPLES=OFF -DBUILD_DOCUMENTATION=ON ../OpenSceneGraph-%{srcvers} -Wno-dev
+%cmake \
+   -DBUILD_OSG_EXAMPLES=OFF \
+   -DBUILD_DOCUMENTATION=OFF \
+   ../OpenSceneGraph-%{srcvers} -Wno-dev
 make VERBOSE=1 %{?_smp_mflags}
 
 make doc_openscenegraph doc_openthreads
@@ -150,55 +153,42 @@ Requires:       OpenThreads-devel
 Development files for OpenSceneGraph.
 
 %files devel
-%doc BUILD/doc/OpenSceneGraphReferenceDocs
-%{_includedir}/osg
-%{_includedir}/osgAnimation
-%{_includedir}/osgDB
-%{_includedir}/osgFX
-%{_includedir}/osgGA
-%{_includedir}/osgManipulator
-%{_includedir}/osgParticle
-%{_includedir}/osgPresentation
-%{_includedir}/osgShadow
-%{_includedir}/osgSim
-%{_includedir}/osgTerrain
-%{_includedir}/osgText
-%{_includedir}/osgUtil
-%{_includedir}/osgViewer
-%{_includedir}/osgVolume
-%{_includedir}/osgWidget
+%{_includedir}/osg/
+%{_includedir}/osgAnimation/
+%{_includedir}/osgDB/
+%{_includedir}/osgFX/
+%{_includedir}/osgGA/
+%{_includedir}/osgManipulator/
+%{_includedir}/osgParticle/
+%{_includedir}/osgShadow/
+%{_includedir}/osgSim/
+%{_includedir}/osgTerrain/
+%{_includedir}/osgText/
+%{_includedir}/osgUI/
+%{_includedir}/osgUtil/
+%{_includedir}/osgViewer/
+%{_includedir}/osgVolume/
+%{_includedir}/osgWidget/
+%{_includedir}/osgPresentation/
+%{_libdir}/libosg.so
 %{_libdir}/libosgAnimation.so
 %{_libdir}/libosgDB.so
 %{_libdir}/libosgFX.so
 %{_libdir}/libosgGA.so
 %{_libdir}/libosgManipulator.so
 %{_libdir}/libosgParticle.so
-%{_libdir}/libosgPresentation.so
 %{_libdir}/libosgShadow.so
 %{_libdir}/libosgSim.so
-%{_libdir}/libosg.so
 %{_libdir}/libosgTerrain.so
 %{_libdir}/libosgText.so
+%{_libdir}/libosgUI.so
 %{_libdir}/libosgUtil.so
 %{_libdir}/libosgViewer.so
 %{_libdir}/libosgVolume.so
 %{_libdir}/libosgWidget.so
-%{_libdir}/pkgconfig/openscenegraph-osgAnimation.pc
-%{_libdir}/pkgconfig/openscenegraph-osgDB.pc
-%{_libdir}/pkgconfig/openscenegraph-osgFX.pc
-%{_libdir}/pkgconfig/openscenegraph-osgGA.pc
-%{_libdir}/pkgconfig/openscenegraph-osgManipulator.pc
-%{_libdir}/pkgconfig/openscenegraph-osgParticle.pc
-%{_libdir}/pkgconfig/openscenegraph-osg.pc
-%{_libdir}/pkgconfig/openscenegraph-osgShadow.pc
-%{_libdir}/pkgconfig/openscenegraph-osgSim.pc
-%{_libdir}/pkgconfig/openscenegraph-osgTerrain.pc
-%{_libdir}/pkgconfig/openscenegraph-osgText.pc
-%{_libdir}/pkgconfig/openscenegraph-osgUtil.pc
-%{_libdir}/pkgconfig/openscenegraph-osgViewer.pc
-%{_libdir}/pkgconfig/openscenegraph-osgVolume.pc
-%{_libdir}/pkgconfig/openscenegraph-osgWidget.pc
+%{_libdir}/libosgPresentation.so
 %{_libdir}/pkgconfig/openscenegraph.pc
+%{_libdir}/pkgconfig/openscenegraph-osg*.pc
 
 
 #%package examples-SDL
@@ -474,7 +464,6 @@ Requires:       pkgconfig
 Development files for OpenThreads.
 
 %files -n OpenThreads-devel
-%doc BUILD/doc/OpenThreadsReferenceDocs
 %{_libdir}/pkgconfig/openthreads.pc
 %{_libdir}/libOpenThreads.so
 %{_includedir}/OpenThreads
