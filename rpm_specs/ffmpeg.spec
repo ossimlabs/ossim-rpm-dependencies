@@ -174,7 +174,47 @@ pushd generic
     --shlibdir=%{_libdir} \
     --datadir=%{_datadir}/%{name} \
     --incdir=%{_includedir}/%{name} \
-    --disable-static
+    --disable-static \
+    --enable-swscale \
+    --enable-avfilter \
+    --enable-avresample \
+    --enable-libmp3lame \
+    --enable-libvorbis \
+    --enable-libopus \
+    --enable-librsvg \
+    --enable-libtheora \
+    --enable-libopenjpeg \
+    --enable-libmodplug \
+    --enable-libvpx \
+    --enable-libsoxr \
+    --enable-libspeex \
+    --enable-libass \
+    --enable-libbluray \
+    --enable-lzma \
+    --enable-gnutls \
+    --enable-fontconfig \
+    --enable-libfreetype \
+    --enable-libfribidi \
+    --disable-libjack \
+    --disable-libopencore-amrnb \
+    --disable-libopencore-amrwb \
+    --disable-libxcb \
+    --disable-libxcb-shm \
+    --disable-libxcb-xfixes \
+    --disable-indev=jack \
+    --enable-opencl \
+    --disable-outdev=xv \
+    --enable-audiotoolbox \
+    --enable-videotoolbox \
+    --disable-securetransport \
+    --enable-shared \
+    --enable-pthreads \
+    --enable-x86asm \
+    --enable-libx265 \
+    --enable-gpl \
+    --enable-postproc \
+    --enable-libx264 \
+    --enable-libxvid
 
 # tmp drb 
 %if 0
