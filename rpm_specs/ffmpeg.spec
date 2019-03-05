@@ -192,7 +192,6 @@ pushd generic
     --enable-gnutls \
     --enable-fontconfig \
     --enable-libfreetype \
-    --enable-libfribidi \
     --disable-libjack \
     --disable-libopencore-amrnb \
     --disable-libopencore-amrwb \
