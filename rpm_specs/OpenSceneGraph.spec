@@ -91,7 +91,7 @@ CXXFLAGS="${RPM_OPT_FLAGS} -pthread -std=c++11"
    ../OpenSceneGraph-%{srcvers} -Wno-dev
 make VERBOSE=1 %{?_smp_mflags}
 
-make doc_openscenegraph doc_openthreads
+#make doc_openscenegraph doc_openthreads
 popd
 
 %install
