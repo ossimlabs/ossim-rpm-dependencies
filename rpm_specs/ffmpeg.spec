@@ -212,7 +212,8 @@ pushd generic
     --enable-libx265 \
     --enable-postproc \
     --enable-libx264 \
-    --enable-libxvid
+    --enable-libxvid \
+    --enable-gpl
 
 # tmp drb 
 %if 0
