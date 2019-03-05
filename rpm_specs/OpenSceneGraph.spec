@@ -142,6 +142,7 @@ Runtime libraries files for OpenSceneGraph.
 %{_libdir}/libosgViewer.so.*
 %{_libdir}/libosgVolume.so.*
 %{_libdir}/libosgWidget.so.*
+%{_libdir}/libosgUI.so.*
 
 %package devel
 Summary:        Development files for OpenSceneGraph
