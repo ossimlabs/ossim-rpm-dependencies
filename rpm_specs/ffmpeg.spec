@@ -188,7 +188,6 @@ pushd generic
     --enable-libvpx \
     --enable-libsoxr \
     --enable-libspeex \
-    --enable-libbluray \
     --enable-lzma \
     --enable-gnutls \
     --enable-fontconfig \
