@@ -178,7 +178,6 @@ pushd generic
     --enable-swscale \
     --enable-avfilter \
     --enable-avresample \
-    --enable-libmp3lame \
     --enable-libvorbis \
     --enable-libopus \
     --enable-librsvg \
@@ -196,7 +195,6 @@ pushd generic
     --disable-libxcb-shm \
     --disable-libxcb-xfixes \
     --disable-indev=jack \
-    --enable-opencl \
     --disable-outdev=xv \
     --enable-audiotoolbox \
     --enable-videotoolbox \
