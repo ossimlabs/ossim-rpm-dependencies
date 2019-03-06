@@ -200,7 +200,6 @@ pushd generic
     --enable-pthreads \
     --enable-x86asm \
     --enable-postproc \
-    --enable-libxvid \
     --enable-gpl
 
 # tmp drb 
