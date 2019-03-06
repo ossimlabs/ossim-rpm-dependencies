@@ -182,7 +182,6 @@ pushd generic
     --enable-librsvg \
     --enable-libtheora \
     --enable-libopenjpeg \
-    --enable-libvpx \
     --enable-libspeex \
     --enable-gnutls \
     --enable-fontconfig \
