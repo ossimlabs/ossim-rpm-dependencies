@@ -195,7 +195,6 @@ pushd generic
     --disable-indev=jack \
     --disable-outdev=xv \
     --enable-audiotoolbox \
-    --enable-videotoolbox \
     --disable-securetransport \
     --enable-pthreads \
     --enable-x86asm \
