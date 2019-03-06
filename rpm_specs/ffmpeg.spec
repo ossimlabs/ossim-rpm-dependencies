@@ -179,7 +179,6 @@ pushd generic
     --enable-avfilter \
     --enable-avresample \
     --enable-libvorbis \
-    --enable-libopus \
     --enable-librsvg \
     --enable-libtheora \
     --enable-libopenjpeg \
