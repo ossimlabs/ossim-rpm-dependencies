@@ -199,9 +199,7 @@ pushd generic
     --disable-securetransport \
     --enable-pthreads \
     --enable-x86asm \
-    --enable-libx265 \
     --enable-postproc \
-    --enable-libx264 \
     --enable-libxvid \
     --enable-gpl
 
