@@ -63,6 +63,11 @@ popd > /dev/null
 #fi
 
 
+rpmbuild -ba --define "_without_asm 1" --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/x264.spec
+if [ $? -ne 0 ]; then
+  echo; echo "ERROR: Build failed for x264 rpm build."
+  exit 1
+fi
 
 
 rpmbuild -ba --define "_topdir ${OSSIM_DEV_HOME}/rpmbuild" --define "BUILD_RELEASE 1" ${OSSIM_DEV_HOME}/rpmbuild/SPECS/ffmpeg.spec
